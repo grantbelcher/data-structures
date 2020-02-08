@@ -25,13 +25,25 @@ treeMethods.addChild = function(value) {
 
 treeMethods.contains = function(target) {
 
-  for (var i = 0; i < this.children.length; i++){
-    if (this.children[i].value === target){
-      return true;
+  var nonMatches = 0
+  var matches = 0
+
+  var searchChildren = function(tree){
+
+  for (var i = 0; i < tree.children.length; i++){
+    // console.log(tree.children[i].children[0].value);
+    if (tree.children[i].value === target){
+      matches ++
+    } else {
+      nonMatches++
     }
+    searchChildren(tree.children[i])
+
+  }
   }
 
-  return false;
+  searchChildren(this)
+  return (matches > 0)
 
 };
 
