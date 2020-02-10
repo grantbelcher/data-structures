@@ -1,4 +1,4 @@
-var BinarySearchTree = function(value) {
+
 	var BinarySearchTree = function(value) {
 
   var binaryTree = Object.create(binaryTreePrototype);
@@ -47,7 +47,7 @@ binaryTreePrototype.depthFirstLog = function(callBack) {
     this.right.depthFirstLog(callBack);
   }
 };
-};
+
 
 
 /*
